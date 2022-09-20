@@ -1,0 +1,37 @@
+{
+  "name": "Cantine",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMinlength": "3",
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "nombreGroupe",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "groupeCantine",
+      "otherEntityRelationshipName": "cantine",
+      "relationshipName": "groupecantines"
+    }
+  ],
+  "changelogDate": "20220827212754",
+  "entityTableName": "cantines",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "cantine",
+  "applications": "*",
+  "microserviceName": "cantine"
+}
