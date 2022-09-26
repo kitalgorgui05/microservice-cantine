@@ -22,15 +22,13 @@ import io.github.jhipster.service.filter.StringFilter;
  */
 public class CantineCriteria implements Serializable, Criteria {
 
-    private static final long serialVersionUID = 1L;
-
-    private LongFilter id;
+    private StringFilter id;
 
     private StringFilter libelle;
 
     private IntegerFilter nombreGroupe;
 
-    private LongFilter groupecantinesId;
+    private StringFilter groupecantinesId;
 
     public CantineCriteria() {
     }
@@ -47,11 +45,11 @@ public class CantineCriteria implements Serializable, Criteria {
         return new CantineCriteria(this);
     }
 
-    public LongFilter getId() {
+    public StringFilter getId() {
         return id;
     }
 
-    public void setId(LongFilter id) {
+    public void setId(StringFilter id) {
         this.id = id;
     }
 
@@ -71,11 +69,11 @@ public class CantineCriteria implements Serializable, Criteria {
         this.nombreGroupe = nombreGroupe;
     }
 
-    public LongFilter getGroupecantinesId() {
+    public StringFilter getGroupecantinesId() {
         return groupecantinesId;
     }
 
-    public void setGroupecantinesId(LongFilter groupecantinesId) {
+    public void setGroupecantinesId(StringFilter groupecantinesId) {
         this.groupecantinesId = groupecantinesId;
     }
 
@@ -116,5 +114,4 @@ public class CantineCriteria implements Serializable, Criteria {
                 (groupecantinesId != null ? "groupecantinesId=" + groupecantinesId + ", " : "") +
             "}";
     }
-
 }

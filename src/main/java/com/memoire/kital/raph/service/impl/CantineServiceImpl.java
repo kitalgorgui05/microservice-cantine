@@ -52,14 +52,14 @@ public class CantineServiceImpl implements CantineService {
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<CantineDTO> findOne(Long id) {
+    public Optional<CantineDTO> findOne(String id) {
         log.debug("Request to get Cantine : {}", id);
         return cantineRepository.findById(id)
             .map(cantineMapper::toDto);
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(String id) {
         log.debug("Request to delete Cantine : {}", id);
         cantineRepository.deleteById(id);
     }

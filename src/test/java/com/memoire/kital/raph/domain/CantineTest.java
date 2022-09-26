@@ -10,11 +10,11 @@ public class CantineTest {
     public void equalsVerifier() throws Exception {
         TestUtil.equalsVerifier(Cantine.class);
         Cantine cantine1 = new Cantine();
-        cantine1.setId(1L);
+        cantine1.setId(null);
         Cantine cantine2 = new Cantine();
         cantine2.setId(cantine1.getId());
         assertThat(cantine1).isEqualTo(cantine2);
-        cantine2.setId(2L);
+        cantine2.setId(null);
         assertThat(cantine1).isNotEqualTo(cantine2);
         cantine1.setId(null);
         assertThat(cantine1).isNotEqualTo(cantine2);

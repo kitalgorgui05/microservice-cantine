@@ -123,7 +123,7 @@ public class GroupeCantineResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the groupeCantineDTO, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/groupe-cantines/{id}")
-    public ResponseEntity<GroupeCantineDTO> getGroupeCantine(@PathVariable Long id) {
+    public ResponseEntity<GroupeCantineDTO> getGroupeCantine(@PathVariable String id) {
         log.debug("REST request to get GroupeCantine : {}", id);
         Optional<GroupeCantineDTO> groupeCantineDTO = groupeCantineService.findOne(id);
         return ResponseUtil.wrapOrNotFound(groupeCantineDTO);
@@ -136,7 +136,7 @@ public class GroupeCantineResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/groupe-cantines/{id}")
-    public ResponseEntity<Void> deleteGroupeCantine(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteGroupeCantine(@PathVariable String id) {
         log.debug("REST request to delete GroupeCantine : {}", id);
         groupeCantineService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();

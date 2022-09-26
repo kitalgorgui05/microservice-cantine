@@ -7,8 +7,8 @@ import java.io.Serializable;
  * A DTO for the {@link com.memoire.kital.raph.domain.GroupeCantine} entity.
  */
 public class GroupeCantineDTO implements Serializable {
-    
-    private Long id;
+
+    private String id;
 
     @NotNull
     @Size(min = 2, max = 20)
@@ -19,12 +19,12 @@ public class GroupeCantineDTO implements Serializable {
 
 
     private Long cantineId;
-    
-    public Long getId() {
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

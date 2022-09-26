@@ -123,7 +123,7 @@ public class CantineResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the cantineDTO, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/cantines/{id}")
-    public ResponseEntity<CantineDTO> getCantine(@PathVariable Long id) {
+    public ResponseEntity<CantineDTO> getCantine(@PathVariable String id) {
         log.debug("REST request to get Cantine : {}", id);
         Optional<CantineDTO> cantineDTO = cantineService.findOne(id);
         return ResponseUtil.wrapOrNotFound(cantineDTO);
@@ -136,7 +136,7 @@ public class CantineResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/cantines/{id}")
-    public ResponseEntity<Void> deleteCantine(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteCantine(@PathVariable String id) {
         log.debug("REST request to delete Cantine : {}", id);
         cantineService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();

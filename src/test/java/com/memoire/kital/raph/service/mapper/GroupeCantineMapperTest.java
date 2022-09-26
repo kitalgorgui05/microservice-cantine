@@ -15,7 +15,7 @@ public class GroupeCantineMapperTest {
 
     @Test
     public void testEntityFromId() {
-        Long id = 1L;
+        String id = null;
         assertThat(groupeCantineMapper.fromId(id).getId()).isEqualTo(id);
         assertThat(groupeCantineMapper.fromId(null)).isNull();
     }

@@ -35,12 +35,12 @@ public interface CantineService {
      * @param id the id of the entity.
      * @return the entity.
      */
-    Optional<CantineDTO> findOne(Long id);
+    Optional<CantineDTO> findOne(String id);
 
     /**
      * Delete the "id" cantine.
      *
      * @param id the id of the entity.
      */
-    void delete(Long id);
+    void delete(String id);
 }

@@ -119,7 +119,7 @@ public class CantineResourceIT {
         int databaseSizeBeforeCreate = cantineRepository.findAll().size();
 
         // Create the Cantine with an existing ID
-        cantine.setId(1L);
+        cantine.setId(null);
         CantineDTO cantineDTO = cantineMapper.toDto(cantine);
 
         // An entity with an existing ID cannot be created, so this API call must fail
@@ -184,11 +184,11 @@ public class CantineResourceIT {
         restCantineMockMvc.perform(get("/api/cantines?sort=id,desc"))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(cantine.getId().intValue())))
+            .andExpect(jsonPath("$.[*].id").value(hasItem(cantine.getId())))
             .andExpect(jsonPath("$.[*].libelle").value(hasItem(DEFAULT_LIBELLE)))
             .andExpect(jsonPath("$.[*].nombreGroupe").value(hasItem(DEFAULT_NOMBRE_GROUPE)));
     }
-    
+
     @Test
     @Transactional
     public void getCantine() throws Exception {
@@ -199,7 +199,7 @@ public class CantineResourceIT {
         restCantineMockMvc.perform(get("/api/cantines/{id}", cantine.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-            .andExpect(jsonPath("$.id").value(cantine.getId().intValue()))
+            .andExpect(jsonPath("$.id").value(cantine.getId()))
             .andExpect(jsonPath("$.libelle").value(DEFAULT_LIBELLE))
             .andExpect(jsonPath("$.nombreGroupe").value(DEFAULT_NOMBRE_GROUPE));
     }
@@ -211,7 +211,7 @@ public class CantineResourceIT {
         // Initialize the database
         cantineRepository.saveAndFlush(cantine);
 
-        Long id = cantine.getId();
+        String id = cantine.getId();
 
         defaultCantineShouldBeFound("id.equals=" + id);
         defaultCantineShouldNotBeFound("id.notEquals=" + id);
@@ -417,7 +417,7 @@ public class CantineResourceIT {
         em.flush();
         cantine.addGroupecantines(groupecantines);
         cantineRepository.saveAndFlush(cantine);
-        Long groupecantinesId = groupecantines.getId();
+        String groupecantinesId = groupecantines.getId();
 
         // Get all the cantineList where groupecantines equals to groupecantinesId
         defaultCantineShouldBeFound("groupecantinesId.equals=" + groupecantinesId);
@@ -433,7 +433,7 @@ public class CantineResourceIT {
         restCantineMockMvc.perform(get("/api/cantines?sort=id,desc&" + filter))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(cantine.getId().intValue())))
+            .andExpect(jsonPath("$.[*].id").value(hasItem(cantine.getId())))
             .andExpect(jsonPath("$.[*].libelle").value(hasItem(DEFAULT_LIBELLE)))
             .andExpect(jsonPath("$.[*].nombreGroupe").value(hasItem(DEFAULT_NOMBRE_GROUPE)));
 

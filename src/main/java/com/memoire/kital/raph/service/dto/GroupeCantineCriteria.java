@@ -21,16 +21,13 @@ import io.github.jhipster.service.filter.StringFilter;
  * fix type specific filters.
  */
 public class GroupeCantineCriteria implements Serializable, Criteria {
-
-    private static final long serialVersionUID = 1L;
-
-    private LongFilter id;
+    private StringFilter id;
 
     private StringFilter nom;
 
     private IntegerFilter nombreEleves;
 
-    private LongFilter cantineId;
+    private StringFilter cantineId;
 
     public GroupeCantineCriteria() {
     }
@@ -47,11 +44,11 @@ public class GroupeCantineCriteria implements Serializable, Criteria {
         return new GroupeCantineCriteria(this);
     }
 
-    public LongFilter getId() {
+    public StringFilter getId() {
         return id;
     }
 
-    public void setId(LongFilter id) {
+    public void setId(StringFilter id) {
         this.id = id;
     }
 
@@ -71,11 +68,11 @@ public class GroupeCantineCriteria implements Serializable, Criteria {
         this.nombreEleves = nombreEleves;
     }
 
-    public LongFilter getCantineId() {
+    public StringFilter getCantineId() {
         return cantineId;
     }
 
-    public void setCantineId(LongFilter cantineId) {
+    public void setCantineId(StringFilter cantineId) {
         this.cantineId = cantineId;
     }
 

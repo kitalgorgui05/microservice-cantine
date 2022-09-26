@@ -89,7 +89,7 @@ public class GroupeCantineQueryService extends QueryService<GroupeCantine> {
         Specification<GroupeCantine> specification = Specification.where(null);
         if (criteria != null) {
             if (criteria.getId() != null) {
-                specification = specification.and(buildRangeSpecification(criteria.getId(), GroupeCantine_.id));
+                specification = specification.and(buildStringSpecification(criteria.getId(), GroupeCantine_.id));
             }
             if (criteria.getNom() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getNom(), GroupeCantine_.nom));

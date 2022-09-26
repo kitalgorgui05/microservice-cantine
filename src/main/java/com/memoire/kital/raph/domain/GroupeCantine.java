@@ -1,8 +1,10 @@
 package com.memoire.kital.raph.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -17,11 +19,12 @@ import java.io.Serializable;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class GroupeCantine implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
+    @EqualsAndHashCode.Include
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid",strategy = "uuid")
+    @Column(name = "id",unique = true)
+    private String id;
 
     @NotNull
     @Size(min = 2, max = 20)
@@ -37,11 +40,11 @@ public class GroupeCantine implements Serializable {
     private Cantine cantine;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -10,12 +10,12 @@ public class GroupeCantineDTOTest {
     public void dtoEqualsVerifier() throws Exception {
         TestUtil.equalsVerifier(GroupeCantineDTO.class);
         GroupeCantineDTO groupeCantineDTO1 = new GroupeCantineDTO();
-        groupeCantineDTO1.setId(1L);
+        groupeCantineDTO1.setId(null);
         GroupeCantineDTO groupeCantineDTO2 = new GroupeCantineDTO();
         assertThat(groupeCantineDTO1).isNotEqualTo(groupeCantineDTO2);
         groupeCantineDTO2.setId(groupeCantineDTO1.getId());
         assertThat(groupeCantineDTO1).isEqualTo(groupeCantineDTO2);
-        groupeCantineDTO2.setId(2L);
+        groupeCantineDTO2.setId(null);
         assertThat(groupeCantineDTO1).isNotEqualTo(groupeCantineDTO2);
         groupeCantineDTO1.setId(null);
         assertThat(groupeCantineDTO1).isNotEqualTo(groupeCantineDTO2);

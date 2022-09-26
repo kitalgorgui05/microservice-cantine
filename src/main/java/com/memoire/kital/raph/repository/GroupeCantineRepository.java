@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface GroupeCantineRepository extends JpaRepository<GroupeCantine, Long>, JpaSpecificationExecutor<GroupeCantine> {
+public interface GroupeCantineRepository extends JpaRepository<GroupeCantine, String>, JpaSpecificationExecutor<GroupeCantine> {
 }

@@ -15,7 +15,7 @@ public class CantineMapperTest {
 
     @Test
     public void testEntityFromId() {
-        Long id = 1L;
+        String id = null;
         assertThat(cantineMapper.fromId(id).getId()).isEqualTo(id);
         assertThat(cantineMapper.fromId(null)).isNull();
     }

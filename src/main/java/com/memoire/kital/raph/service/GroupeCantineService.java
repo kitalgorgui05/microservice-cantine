@@ -35,12 +35,12 @@ public interface GroupeCantineService {
      * @param id the id of the entity.
      * @return the entity.
      */
-    Optional<GroupeCantineDTO> findOne(Long id);
+    Optional<GroupeCantineDTO> findOne(String id);
 
     /**
      * Delete the "id" groupeCantine.
      *
      * @param id the id of the entity.
      */
-    void delete(Long id);
+    void delete(String id);
 }

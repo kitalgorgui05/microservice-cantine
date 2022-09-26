@@ -6,13 +6,13 @@
     <!--
         Added the constraints for entity GroupeCantine.
     -->
-    <changeSet id="20220827212654-2" author="jhipster">
-        
+<!--    <changeSet id="20220827212654-2" author="jhipster">
+
         <addForeignKeyConstraint baseColumnNames="cantine_id"
                                  baseTableName="groupecantines"
                                  constraintName="fk_groupecantines_cantine_id"
                                  referencedColumnNames="id"
                                  referencedTableName="cantines"/>
 
-    </changeSet>
+    </changeSet>-->
 </databaseChangeLog>

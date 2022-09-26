@@ -52,14 +52,14 @@ public class GroupeCantineServiceImpl implements GroupeCantineService {
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<GroupeCantineDTO> findOne(Long id) {
+    public Optional<GroupeCantineDTO> findOne(String id) {
         log.debug("Request to get GroupeCantine : {}", id);
         return groupeCantineRepository.findById(id)
             .map(groupeCantineMapper::toDto);
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(String id) {
         log.debug("Request to delete GroupeCantine : {}", id);
         groupeCantineRepository.deleteById(id);
     }

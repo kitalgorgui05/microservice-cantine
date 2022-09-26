@@ -18,7 +18,7 @@ public interface GroupeCantineMapper extends EntityMapper<GroupeCantineDTO, Grou
     @Mapping(source = "cantineId", target = "cantine")
     GroupeCantine toEntity(GroupeCantineDTO groupeCantineDTO);
 
-    default GroupeCantine fromId(Long id) {
+    default GroupeCantine fromId(String id) {
         if (id == null) {
             return null;
         }
