@@ -22,7 +22,7 @@
             <column name="nombre_eleves" type="integer">
                 <constraints nullable="false" />
             </column>
-            <column name="cantine_id" type="bigint">
+            <column name="cantine_id" type="varchar(32)">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

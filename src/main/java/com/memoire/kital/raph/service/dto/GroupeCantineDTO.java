@@ -18,7 +18,7 @@ public class GroupeCantineDTO implements Serializable {
     private Integer nombreEleves;
 
 
-    private Long cantineId;
+    private String cantineId;
 
     public String getId() {
         return id;
@@ -44,11 +44,11 @@ public class GroupeCantineDTO implements Serializable {
         this.nombreEleves = nombreEleves;
     }
 
-    public Long getCantineId() {
+    public String getCantineId() {
         return cantineId;
     }
 
-    public void setCantineId(Long cantineId) {
+    public void setCantineId(String cantineId) {
         this.cantineId = cantineId;
     }
 
