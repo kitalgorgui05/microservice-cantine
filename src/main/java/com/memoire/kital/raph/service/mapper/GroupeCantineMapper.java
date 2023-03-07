@@ -12,10 +12,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {CantineMapper.class})
 public interface GroupeCantineMapper extends EntityMapper<GroupeCantineDTO, GroupeCantine> {
 
-    @Mapping(source = "cantine.id", target = "cantineId")
+    //@Mapping(source = "cantine.id", target = "cantineId")
     GroupeCantineDTO toDto(GroupeCantine groupeCantine);
 
-    @Mapping(source = "cantineId", target = "cantine")
+    //@Mapping(source = "cantineId", target = "cantine")
     GroupeCantine toEntity(GroupeCantineDTO groupeCantineDTO);
 
     default GroupeCantine fromId(String id) {

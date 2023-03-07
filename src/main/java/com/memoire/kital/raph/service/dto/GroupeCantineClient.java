@@ -1,13 +1,12 @@
 package com.memoire.kital.raph.service.dto;
 
-import javax.validation.constraints.*;
 import java.io.Serializable;
 
-public class GroupeCantineDTO implements Serializable {
+public class GroupeCantineClient implements Serializable {
     private String id;
     private String nom;
     private Integer nombreEleves;
-    private CantineDTO cantine;
+    private ResponseCantine cantine;
 
     public String getId() {
         return id;
@@ -33,11 +32,11 @@ public class GroupeCantineDTO implements Serializable {
         this.nombreEleves = nombreEleves;
     }
 
-    public CantineDTO getCantine() {
+    public ResponseCantine getCantine() {
         return cantine;
     }
 
-    public void setCantine(CantineDTO cantine) {
+    public void setCantine(ResponseCantine cantine) {
         this.cantine = cantine;
     }
 
@@ -46,11 +45,11 @@ public class GroupeCantineDTO implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof GroupeCantineDTO)) {
+        if (!(o instanceof GroupeCantineClient)) {
             return false;
         }
 
-        return id != null && id.equals(((GroupeCantineDTO) o).id);
+        return id != null && id.equals(((GroupeCantineClient) o).id);
     }
 
     @Override
@@ -61,7 +60,7 @@ public class GroupeCantineDTO implements Serializable {
     // prettier-ignore
     @Override
     public String toString() {
-        return "GroupeCantineDTO{" +
+        return "GroupeCantineClient{" +
             "id=" + getId() +
             ", nom='" + getNom() + "'" +
             ", nombreEleves=" + getNombreEleves() +

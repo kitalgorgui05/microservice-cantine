@@ -21,18 +21,14 @@ import java.util.Optional;
 @Service
 @Transactional
 public class CantineServiceImpl implements CantineService {
-
     private final Logger log = LoggerFactory.getLogger(CantineServiceImpl.class);
-
     private final CantineRepository cantineRepository;
-
     private final CantineMapper cantineMapper;
 
     public CantineServiceImpl(CantineRepository cantineRepository, CantineMapper cantineMapper) {
         this.cantineRepository = cantineRepository;
         this.cantineMapper = cantineMapper;
     }
-
     @Override
     public CantineDTO save(CantineDTO cantineDTO) {
         log.debug("Request to save Cantine : {}", cantineDTO);
@@ -40,7 +36,6 @@ public class CantineServiceImpl implements CantineService {
         cantine = cantineRepository.save(cantine);
         return cantineMapper.toDto(cantine);
     }
-
     @Override
     @Transactional(readOnly = true)
     public Page<CantineDTO> findAll(Pageable pageable) {
@@ -48,8 +43,6 @@ public class CantineServiceImpl implements CantineService {
         return cantineRepository.findAll(pageable)
             .map(cantineMapper::toDto);
     }
-
-
     @Override
     @Transactional(readOnly = true)
     public Optional<CantineDTO> findOne(String id) {
@@ -57,7 +50,6 @@ public class CantineServiceImpl implements CantineService {
         return cantineRepository.findById(id)
             .map(cantineMapper::toDto);
     }
-
     @Override
     public void delete(String id) {
         log.debug("Request to delete Cantine : {}", id);

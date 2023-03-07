@@ -3,13 +3,8 @@ package com.memoire.kital.raph.service.dto;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 
-/**
- * A DTO for the {@link com.memoire.kital.raph.domain.Cantine} entity.
- */
 public class CantineDTO implements Serializable {
-
     private String id;
-
     @NotNull
     @Size(min = 3, max = 10)
     private String libelle;
@@ -17,6 +12,17 @@ public class CantineDTO implements Serializable {
     @NotNull
     private Integer nombreGroupe;
 
+    //All constructor
+    public CantineDTO(String id, String libelle, Integer nombreGroupe) {
+        this.id = id;
+        this.libelle = libelle;
+        this.nombreGroupe = nombreGroupe;
+    }
+    public CantineDTO() {
+    }
+    public CantineDTO(String id) {
+        this.id = id;
+    }
 
     public String getId() {
         return id;

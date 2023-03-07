@@ -1,15 +1,8 @@
 package com.memoire.kital.raph.service.dto;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-public class CantineClient {
+public class ResponseCantine {
     private String id;
-
-    @NotNull
-    @Size(min = 3, max = 10)
     private String libelle;
-
 
     public String getId() {
         return id;
@@ -32,11 +25,11 @@ public class CantineClient {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof CantineDTO)) {
+        if (!(o instanceof ResponseCantine)) {
             return false;
         }
 
-        return id != null && id.equals(((CantineClient) o).id);
+        return id != null && id.equals(((ResponseCantine) o).id);
     }
 
     @Override
@@ -47,8 +40,8 @@ public class CantineClient {
     // prettier-ignore
     @Override
     public String toString() {
-        return "CantineDTO{" +
-            "id=" + getId() +
+        return "ResponseCantine{" +
+            ", id='" + getId() +"'"+
             ", libelle='" + getLibelle() +
             "}";
     }
