@@ -14,7 +14,7 @@ public interface CantineMapper extends EntityMapper<CantineDTO, Cantine> {
 
 
     @Mapping(target = "groupecantines", ignore = true)
-    @Mapping(target = "removeGroupecantines", ignore = true)
+    //@Mapping(target = "removeGroupecantines", ignore = true)
     Cantine toEntity(CantineDTO cantineDTO);
 
     default Cantine fromId(String id) {

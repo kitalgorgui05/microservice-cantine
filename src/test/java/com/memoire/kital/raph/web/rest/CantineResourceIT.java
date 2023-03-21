@@ -22,6 +22,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import java.util.List;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
@@ -71,9 +72,9 @@ public class CantineResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Cantine createEntity(EntityManager em) {
-        Cantine cantine = new Cantine()
-            .libelle(DEFAULT_LIBELLE)
-            .nombreGroupe(DEFAULT_NOMBRE_GROUPE);
+        Cantine cantine = new Cantine();
+        cantine.setLibelle(DEFAULT_LIBELLE);
+        cantine.setNombreGroupe(DEFAULT_NOMBRE_GROUPE);
         return cantine;
     }
     /**
@@ -83,9 +84,9 @@ public class CantineResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Cantine createUpdatedEntity(EntityManager em) {
-        Cantine cantine = new Cantine()
-            .libelle(UPDATED_LIBELLE)
-            .nombreGroupe(UPDATED_NOMBRE_GROUPE);
+        Cantine cantine = new Cantine();
+        cantine.setLibelle(UPDATED_LIBELLE);
+        cantine.setNombreGroupe(UPDATED_NOMBRE_GROUPE);
         return cantine;
     }
 
@@ -415,7 +416,7 @@ public class CantineResourceIT {
         GroupeCantine groupecantines = GroupeCantineResourceIT.createEntity(em);
         em.persist(groupecantines);
         em.flush();
-        cantine.addGroupecantines(groupecantines);
+        cantine.setGroupecantines((Set<GroupeCantine>) groupecantines);
         cantineRepository.saveAndFlush(cantine);
         String groupecantinesId = groupecantines.getId();
 
@@ -481,9 +482,8 @@ public class CantineResourceIT {
         Cantine updatedCantine = cantineRepository.findById(cantine.getId()).get();
         // Disconnect from session so that the updates on updatedCantine are not directly saved in db
         em.detach(updatedCantine);
-        updatedCantine
-            .libelle(UPDATED_LIBELLE)
-            .nombreGroupe(UPDATED_NOMBRE_GROUPE);
+        updatedCantine.setLibelle(UPDATED_LIBELLE);
+        updatedCantine.setNombreGroupe(UPDATED_NOMBRE_GROUPE);
         CantineDTO cantineDTO = cantineMapper.toDto(updatedCantine);
 
         restCantineMockMvc.perform(put("/api/cantines").with(csrf())
