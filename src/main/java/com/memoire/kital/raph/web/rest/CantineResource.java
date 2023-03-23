@@ -64,7 +64,7 @@ public class CantineResource {
         }
         CantineDTO result = cantineService.save(cantineDTO);
         return ResponseEntity.created(new URI("/api/cantines/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getLibelle().toString()))
             .body(result);
     }
 
@@ -85,7 +85,7 @@ public class CantineResource {
         }
         CantineDTO result = cantineService.save(cantineDTO);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, cantineDTO.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, cantineDTO.getLibelle().toString()))
             .body(result);
     }
 
@@ -139,6 +139,6 @@ public class CantineResource {
     public ResponseEntity<Void> deleteCantine(@PathVariable String id) {
         log.debug("REST request to delete Cantine : {}", id);
         cantineService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, null)).build();
     }
 }
